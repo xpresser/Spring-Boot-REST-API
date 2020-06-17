@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+    oracledb:
+        container_name: oracle-database
+        image: xpresser/oracle
+        shm_size: '3gb'
+        ports:
+            - 1521:1521
+            - 5500:5500
+        restart: always
+    rest-api:
+        restart: on-failure
+        image: xpresser/spring-boot
+        ports:
+            - 8080:8080
+        depends_on:
+            - oracledb

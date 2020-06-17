@@ -1,0 +1,4 @@
+FROM oracle/database:12.2.0.1-ee
+
+COPY 01_createUser.sql /opt/oracle/scripts/setup
+COPY 02_project-app.sql /opt/oracle/scripts/setup
